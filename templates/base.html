@@ -54,10 +54,14 @@
                 <li class="hs-has-sub-menu nav-item">
                   <a id="listingsDropdown" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
                   <div class="hs-sub-menu dropdown-menu" aria-labelledby="listingsDropdown" style="min-width: 14rem;">
-                    <a class="dropdown-item" href="aboutus.php#aboutus">About Us</a>
-                    <!-- <a class="dropdown-item" href="aboutus.php#team">Team</a> -->
-                    <a class="dropdown-item" href="gallery.php">Gallery</a>
-                    <a class="dropdown-item" href="aboutus.php#clients">Clients</a>
+                    
+                    {%if request.user.is_authenticated%}
+                        <a class="dropdown-item" href="">{{ request.user.username}}</a>
+                        <a class="dropdown-item" href="{%url 'logout'%}">Logout</a>
+                      {%else%}
+                        <a class="dropdown-item" href="{%url 'login'%}">LogIn</a></div>
+                        <a class="dropdown-item" href="{%url 'signup'%}">SignUp</a></div>
+                      {%endif%}
                   </div>
                 </li>
                 <!-- End Dropdown -->
@@ -84,8 +88,13 @@
                     </i>
                   </button>
                   <!-- End Shopping Cart -->
-    
-                  <a class="btn btn-primary btn-sm btn-transition" type="button" href="users/index.php">Login</a>
+                  {%if request.user.is_authenticated%}
+                  <a class="btn btn-primary btn-sm btn-transition" type="button" href="">{{ request.user.username}}</a>
+                  <a class="btn btn-primary btn-sm btn-transition" type="button" href="{%url 'logout'%}">Logout</a>
+                  {%else%}
+                  <a class="btn btn-primary btn-sm btn-transition" type="button" href="{%url 'login'%}">Login</a>
+                  <a class="btn btn-primary btn-sm btn-transition" type="button" href="{%url 'signup'%}">SignUp</a>
+                      {%endif%}
                 </li>
               </ul>
             </div>

@@ -276,7 +276,7 @@
 
 			  <!-- Table -->
 			  <div class="table-responsive datatable-custom" style="min-height:500px">
-          {% for item in orders %}
+       
 				<table class="js-datatable table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options="{
 							   &quot;order&quot;: [],
 							   &quot;search&quot;: &quot;#datatableWithSearchInput&quot;,
@@ -294,9 +294,10 @@
 				  </tr></thead>
 
 				  <tbody>
-          {% for item in orders %}
+          
 									  
 				  <tr class="text-center">
+            {% for item in orders %}
 					<td>
 					  <a class="d-flex justify-content-center" href="https://amansfood.com/users/order-view.php?order=48871910904354172">
 						<span class="d-block h5 mb-0">{{item.id}}</span>
@@ -314,7 +315,7 @@
 					<td>
 							  <div class="btn-group" role="group">
 								<a class="btn btn-white btn-sm" href="{% url 'orderlist' item.pk %}">
-								  <i class="bi bi-eye me-1"></i> View
+								  <i class="bi bi-eye me-1"></i> View{{item.pk}}
 								</a>
 
 								<!-- Button Group -->
@@ -338,15 +339,15 @@
 								</div>
 								<!-- End Button Group -->
 							  </div>
-							</td>
-				  </tr>
+							</td>    
+				  </tr>{%endfor%}
 									  </tbody>
-                    {%endfor%}
+                
 				</table>
-       
+
 			  </div>
 			  <!-- End Table -->
-        {%endfor%}
+      
 			  <!-- Footer -->
         <div class="card-footer">
           <!-- Pagination -->

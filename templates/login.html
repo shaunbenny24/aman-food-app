@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static  'login.css'%}">
+
+<link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+<link rel="manifest" href="./favicon/site.webmanifest">
+<link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;0,600;1,600&family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,700;8..144,900&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="login-page">
+    <div class="form">
+    
+      <form class="login-form" method="POST">
+        <div class="haotai">
+          <div class="haoo"><img src="https://amansfood.com/uploads/ammanfoodslogo.png" alt=""></div>
+      </div>
+        <!-- <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/> -->
+        {% csrf_token %}
+
+        {{form.username}}
+        {{form.password}}
+        <button>login</button>
+        <p class="message">Not registered? <a href="{%url 'signup' %}">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

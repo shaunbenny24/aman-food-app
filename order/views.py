@@ -5,15 +5,16 @@ from product.models import Category,Product,OrderItem,Order
 
 # Create your views here.
 
-def order(request):
-    orders = OrderItem.objects.all()
+def orders(request):
+    orders = Order.objects.all()
 
     return render(request,'order/order.html',{'orders':orders})
 
 
-def orderlist(request,id):
-    order = Order.objects.get(id=id)
-    singles =OrderItem.objects.filter(order=Order)
+def orderlist(request,pk):
+    order = Order.objects.get(pk=pk)
+    singles = OrderItem.objects.filter(order=order)
+    print(singles)
     return render(request,'order/ordersingle.html',{'singles':singles})
 
 

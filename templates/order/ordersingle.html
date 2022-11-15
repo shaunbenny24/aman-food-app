@@ -277,10 +277,12 @@
 
 						<tbody>
 						{% for single in singles %}
+					<td>
+
 												<tr class="text-center">
 						  <td>
 							<div class="avatar avatar-lg avatar-4x3">
-								<img class="avatar-img" src="{{single.product.image.url}}" alt="Product">
+								<img class="avatar-img" src="{{single.product.pimage1.url}}" alt="Product">
 							</div>
 						  </td>
 						  <td>
@@ -289,7 +291,7 @@
 						  <td>1</td>
 						  
 						</tr>
-												
+              {% endfor %}		
 						</tbody>
 					  </table>
 					</div>
@@ -305,7 +307,7 @@
 	  </div>
 	</div>
 	<!-- End Content -->
-{%endfor%}
+
     <!-- Footer -->
 
     <div class="footer">
