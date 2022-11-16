@@ -15,7 +15,9 @@ def checkout(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             print('item is')
-            order = form.save()
+            order = form.save(commit=False)
+            order.user = request.user
+            order.save()
             for item in cart:
                 OrderItem.objects.create(
                     order=order,

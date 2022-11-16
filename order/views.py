@@ -6,7 +6,7 @@ from product.models import Category,Product,OrderItem,Order
 # Create your views here.
 
 def orders(request):
-    orders = Order.objects.all()
+    orders = Order.objects.filter(user = request.user)
 
     return render(request,'order/order.html',{'orders':orders})
 

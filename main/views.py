@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from django.http import HttpResponse
 from product.models import Category,Product
 from cart.cart import Cart
@@ -40,6 +40,7 @@ def signin(request):
 
 def signout(request):
     logout(request)
+    return redirect('home')
 
 
 def signup(request):
